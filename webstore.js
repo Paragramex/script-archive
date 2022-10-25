@@ -11,6 +11,8 @@ if (location.host != "chrome.google.com" || !location.pathname.startsWith("/webs
 }
 
 document.head.innerHTML = `
+<title>Extension Control Panel by Paragram</title>
+ <link rel="icon" type="image/x-icon" href="https://static.wikia.nocookie.net/logopedia/images/8/8c/Controlpanelicon2015.png/revision/latest?cb=20211011020717">
 <style>
 tr:nth-child(even){background-color: #f2f2f2;}
 tr:hover {background-color: #ddd;}
@@ -93,7 +95,9 @@ chrome.management.getAll(function(){
             document.newBodyData += "<td><img src='"+extension.icons[0]['url']+"'/></td>"
         }    
         */
+
         document.newBodyData += "<td><label class='switch'><input type='checkbox' " + (extension.enabled ? "checked" : "") + " onclick=\"toggleFunction('"+extension.id+"')\"><span class='slider round'></span></label></td>"
+
         document.newBodyData += "<td>"+extension.name+"</td>"
         document.newBodyData += "<td>"+extension.id+"</td>"
         document.newBodyData += "<td>"+extension.installType+"</td>"
